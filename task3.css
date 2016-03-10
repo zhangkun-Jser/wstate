@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+img{
+    max-width: 100%;
+}
+body{
+    font-size: 62.5%;
+    color:white;
+}
+.content{
+    width:100%;
+    margin: 0 auto;
+}
+.fanhui{
+    margin:0.5rem;
+    width:10%;
+
+ }
+
+.shangbiao{
+    text-align:center;
+    width:40%;
+    margin:2rem auto;
+}
+.text{
+    font-size:1rem;
+    text-align:center;
+    margin: 5rem;
+}
+.renqun{
+    float:left;
+    text-align:center;
+    width:15%;
+    margin:15%;
+}
+.putao{
+    float:right;
+    text-align:center;
+    width:15%;
+    margin:15%;
+}
