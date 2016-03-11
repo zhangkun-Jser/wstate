@@ -23,11 +23,13 @@ body{
     text-align:center;
     width:40%;
     margin:2rem auto;
+
 }
 .text{
     font-size:1rem;
     text-align:center;
     margin: 5rem;
+    line-height: 200%
 }
 .renqun{
     float:left;
