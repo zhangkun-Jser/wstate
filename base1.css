@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 3.2rem;
+    font-family: "Microsoft YaHei", serif;
+    min-width: 320px;
+}
+
+img {
+    max-width: 100%;
+
+}
+
+ul {
+    list-style: none;
+}
+
+@media screen and (max-width: 480px) {
+    html {
+        font-size: 40%;
+    }
+}

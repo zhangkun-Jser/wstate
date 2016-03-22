@@ -31,7 +31,6 @@ body{
 }
 .text{
     width: 100%;
-    background-color: white;
     margin: 10px 0 20px 0;
 }
 .zuihou{
@@ -53,4 +52,8 @@ position: relative;
     width: 76%;
     height: 44px;
     top: -15px;
+}
+.box{
+    background-color: white;
+    margin: 10px 0;
 }
