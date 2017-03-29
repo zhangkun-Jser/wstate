@@ -1,8 +1,6 @@
 
 // The file is a light javascript library .
 // Version: 1.0.0
-// Author: Lancer Lin
-// Website: www.linqing07.com/lancer_js/catalog/index.html
 // Email: zhangkun0303@qq.com
 
 
