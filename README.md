@@ -1,4 +1,6 @@
-    00. ajax 
+  一个轻量级的js库，封装的常用的方法，就像一把实用的小扳手。
+   
+   	00. ajax 
 			· get : 使用Get方法获取数据, 
 				ll.ajax.get('2.xml',function(e){
 					console.log(e.getElementsByTagName('success')[0].firstChild.nodeValue)	
