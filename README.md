@@ -2,11 +2,11 @@
    
    	00. ajax 
 			· get : 使用Get方法获取数据, 
-				ll.ajax.get('2.xml',function(e){
+				Z.ajax.get('2.xml',function(e){
 					console.log(e.getElementsByTagName('success')[0].firstChild.nodeValue)	
 				},'xml');
 			· post : 使用Post方法传递数据,
-				ll.ajax.post('ajax.txt',data,function(v){
+				Z.ajax.post('ajax.txt',data,function(v){
 					console.log(e.getElementsByTagName('success')[0].firstChild.nodeValue)	
 				},'xml');			
 	01. array 
@@ -27,7 +27,7 @@
 			· unique : 去除重复数据
 	02. browser 
 			· addFavorite : 将当前页加入到收藏夹 
-				ll.browser.addFavorite('http://www.starwebdesign.com.cn','星秀网页设计','加入收藏失败，有劳您手动添加。')
+				Z.browser.addFavorite('http://www.starwebdesign.com.cn','星秀网页设计','加入收藏失败，有劳您手动添加。')
 			. chrome : 输出chrome信息
 			· core : 输出浏览器内核信息
 			. firefox : 输出ff信息
@@ -43,25 +43,25 @@
 			· get : 获取cookie
 			· set : 设置cookie
 	04. date 
-			· add : 计算日期, ll.date.add(day,20)
-			· getCNDay : 显示周或星期, ll.date.getCNDay(day,Z)
-			· toString : 格式化日期, ll.date.toString(day,'yyyy-mm-dd')
+			· add : 计算日期, Z.date.add(day,20)
+			· getCNDay : 显示周或星期, Z.date.getCNDay(day,Z)
+			· toString : 格式化日期, Z.date.toString(day,'yyyy-mm-dd')
 			
 	05. dom 
 			· 通过id获取,该元素是唯一的 
-				ll.dom('#id') 
+				Z.dom('#id') 
 			 
 			· 通过className获取 
-				ll.dom('.cls') 获取文档中所有className为cls的元素 
-				ll.dom('span.cls') 获取文档中所有className为cls的span元素
-				ll.dom('#abc .cls') 获取文档中所有#abc下的className为cls的元素
-				ll.dom('#abc span.cls') 获取文档中所有#abc下的className为cls的span元素
+				Z.dom('.cls') 获取文档中所有className为cls的元素 
+				Z.dom('span.cls') 获取文档中所有className为cls的span元素
+				Z.dom('#abc .cls') 获取文档中所有#abc下的className为cls的元素
+				Z.dom('#abc span.cls') 获取文档中所有#abc下的className为cls的span元素
 			
 			· 通过tagName获取 
-				ll.dom('span') 获取文档中所有的span元素
-				ll.dom('#abc span') 获取#abc中所有的span元素
+				Z.dom('span') 获取文档中所有的span元素
+				Z.dom('#abc span') 获取#abc中所有的span元素
 	
-			· addClass : 增加类 ll.dom("#abc").addClass("s")
+			· addClass : 增加类 Z.dom("#abc").addClass("s")
 			· after : 在每个匹配的元素之后插入内容
 			· append : 元素内部追加内容
 			· attr : 增加属性
@@ -102,7 +102,7 @@
 			· toggle : 如果元素是可见的，切换为隐藏的；如果元素是隐藏的，切换为可见的
 			
 	06. eventUtil
-			· addHandler : 添加事件监听 ll.eventUtil.addHandler(elem,'click',function(e){ alert("123") });
+			· addHandler : 添加事件监听 Z.eventUtil.addHandler(elem,'click',function(e){ alert("123") });
 			· getEvent : 获取参数
 			· getTarget : 获取目标
 			· preventDefault : 阻止浏览器默认事件
@@ -110,10 +110,10 @@
 			· stopPropagation : 阻止冒泡事件 
 	07. img 
 			· isComplete : 判断图片是否已经加载完成
-			· preload : 预加载图片 ll.img.preload('1.jpg','2.jpg','3.jpg')
+			· preload : 预加载图片 Z.img.preload('1.jpg','2.jpg','3.jpg')
 	08. math 
 			· randomColor : 随机颜色 
-			· randomNum : 随机数 ll.math.randomNum(50,100)
+			· randomNum : 随机数 Z.math.randomNum(50,100)
 			· sum : 求和
 	09. page
 			· getHeight : 获取页面高度
@@ -136,17 +136,17 @@
 			· isX11 : 是否为X11
 	11. query
 			· 通过id获取,该元素是唯一的 
-				ll.query('#id') 
+				Z.query('#id') 
 			 
 			· 通过className获取 
-				ll.query('.cls') 获取文档中所有className为cls的元素 
-				ll.query('span.cls') 获取文档中所有className为cls的span元素
-				ll.query('#abc .cls') 获取文档中所有#abc下的className为cls的元素
-				ll.query('#abc span.cls') 获取文档中所有#abc下的className为cls的span元素
+				Z.query('.cls') 获取文档中所有className为cls的元素 
+				Z.query('span.cls') 获取文档中所有className为cls的span元素
+				Z.query('#abc .cls') 获取文档中所有#abc下的className为cls的元素
+				Z.query('#abc span.cls') 获取文档中所有#abc下的className为cls的span元素
 			
 			· 通过tagName获取 
-				ll.query('span') 获取文档中所有的span元素
-				ll.query('#abc span') 获取#abc中所有的span元素
+				Z.query('span') 获取文档中所有的span元素
+				Z.query('#abc span') 获取#abc中所有的span元素
 	12. regExp
 			· isAdult : 判断是否已成年 
 			· isChinese : 判断是否为中文

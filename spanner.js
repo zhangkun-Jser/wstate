@@ -7,11 +7,11 @@
 /*****************************************************************************
 	00. ajax 
 			· get : 使用Get方法获取数据, 
-				ll.ajax.get('2.xml',function(e){
+				Z.ajax.get('2.xml',function(e){
 					console.log(e.getElementsByTagName('success')[0].firstChild.nodeValue)	
 				},'xml');
 			· post : 使用Post方法传递数据,
-				ll.ajax.post('ajax.txt',data,function(v){
+				Z.ajax.post('ajax.txt',data,function(v){
 					console.log(e.getElementsByTagName('success')[0].firstChild.nodeValue)	
 				},'xml');			
 	01. array 
@@ -32,7 +32,7 @@
 			· unique : 去除重复数据
 	02. browser 
 			· addFavorite : 将当前页加入到收藏夹 
-				ll.browser.addFavorite('http://www.starwebdesign.com.cn','星秀网页设计','加入收藏失败，有劳您手动添加。')
+				Z.browser.addFavorite('http://www.starwebdesign.com.cn','星秀网页设计','加入收藏失败，有劳您手动添加。')
 			. chrome : 输出chrome信息
 			· core : 输出浏览器内核信息
 			. firefox : 输出ff信息
@@ -48,25 +48,25 @@
 			· get : 获取cookie
 			· set : 设置cookie
 	04. date 
-			· add : 计算日期, ll.date.add(day,20)
-			· getCNDay : 显示周或星期, ll.date.getCNDay(day,Z)
-			· toString : 格式化日期, ll.date.toString(day,'yyyy-mm-dd')
+			· add : 计算日期, Z.date.add(day,20)
+			· getCNDay : 显示周或星期, Z.date.getCNDay(day,Z)
+			· toString : 格式化日期, Z.date.toString(day,'yyyy-mm-dd')
 			
 	05. dom 
 			· 通过id获取,该元素是唯一的 
-				ll.dom('#id') 
+				Z.dom('#id') 
 			 
 			· 通过className获取 
-				ll.dom('.cls') 获取文档中所有className为cls的元素 
-				ll.dom('span.cls') 获取文档中所有className为cls的span元素
-				ll.dom('#abc .cls') 获取文档中所有#abc下的className为cls的元素
-				ll.dom('#abc span.cls') 获取文档中所有#abc下的className为cls的span元素
+				Z.dom('.cls') 获取文档中所有className为cls的元素 
+				Z.dom('span.cls') 获取文档中所有className为cls的span元素
+				Z.dom('#abc .cls') 获取文档中所有#abc下的className为cls的元素
+				Z.dom('#abc span.cls') 获取文档中所有#abc下的className为cls的span元素
 			
 			· 通过tagName获取 
-				ll.dom('span') 获取文档中所有的span元素
-				ll.dom('#abc span') 获取#abc中所有的span元素
+				Z.dom('span') 获取文档中所有的span元素
+				Z.dom('#abc span') 获取#abc中所有的span元素
 	
-			· addClass : 增加类 ll.dom("#abc").addClass("s")
+			· addClass : 增加类 Z.dom("#abc").addClass("s")
 			· after : 在每个匹配的元素之后插入内容
 			· append : 元素内部追加内容
 			· attr : 增加属性
@@ -107,7 +107,7 @@
 			· toggle : 如果元素是可见的，切换为隐藏的；如果元素是隐藏的，切换为可见的
 			
 	06. eventUtil
-			· addHandler : 添加事件监听 ll.eventUtil.addHandler(elem,'click',function(e){ alert("123") });
+			· addHandler : 添加事件监听 Z.eventUtil.addHandler(elem,'click',function(e){ alert("123") });
 			· getEvent : 获取参数
 			· getTarget : 获取目标
 			· preventDefault : 阻止浏览器默认事件
@@ -115,10 +115,10 @@
 			· stopPropagation : 阻止冒泡事件 
 	07. img 
 			· isComplete : 判断图片是否已经加载完成
-			· preload : 预加载图片 ll.img.preload('1.jpg','2.jpg','3.jpg')
+			· preload : 预加载图片 Z.img.preload('1.jpg','2.jpg','3.jpg')
 	08. math 
 			· randomColor : 随机颜色 
-			· randomNum : 随机数 ll.math.randomNum(50,100)
+			· randomNum : 随机数 Z.math.randomNum(50,100)
 			· sum : 求和
 	09. page
 			· getHeight : 获取页面高度
@@ -141,17 +141,17 @@
 			· isX11 : 是否为X11
 	11. query
 			· 通过id获取,该元素是唯一的 
-				ll.query('#id') 
+				Z.query('#id') 
 			 
 			· 通过className获取 
-				ll.query('.cls') 获取文档中所有className为cls的元素 
-				ll.query('span.cls') 获取文档中所有className为cls的span元素
-				ll.query('#abc .cls') 获取文档中所有#abc下的className为cls的元素
-				ll.query('#abc span.cls') 获取文档中所有#abc下的className为cls的span元素
+				Z.query('.cls') 获取文档中所有className为cls的元素 
+				Z.query('span.cls') 获取文档中所有className为cls的span元素
+				Z.query('#abc .cls') 获取文档中所有#abc下的className为cls的元素
+				Z.query('#abc span.cls') 获取文档中所有#abc下的className为cls的span元素
 			
 			· 通过tagName获取 
-				ll.query('span') 获取文档中所有的span元素
-				ll.query('#abc span') 获取#abc中所有的span元素
+				Z.query('span') 获取文档中所有的span元素
+				Z.query('#abc span') 获取#abc中所有的span元素
 	12. regExp
 			· isAdult : 判断是否已成年 
 			· isChinese : 判断是否为中文
@@ -182,12 +182,12 @@
 
 
 
-if (typeof ll !=='object'){
-	var ll = {}
+if (typeof Z !=='object'){
+	var Z = {}
 }
 /*--------------8<--------------8<-------AJAX Begin-------8<--------------8<-------------*/
-if (typeof ll.ajax !== 'object'){
-	ll.ajax = {
+if (typeof Z.ajax !== 'object'){
+	Z.ajax = {
 		_xmlHttp : function(){ 
 			return new (window.ActiveXObject||window.XMLHttpRequest)("Microsoft.XMLHTTP");
 		},
@@ -215,14 +215,14 @@ if (typeof ll.ajax !== 'object'){
 			}	
 		},
 		get : function(url,fun,format,bool){
-			var _xhp = ll.ajax._xmlHttp();	
-			ll.ajax._AddEventToXHP(_xhp, fun || function(){}, format);
+			var _xhp = Z.ajax._xmlHttp();	
+			Z.ajax._AddEventToXHP(_xhp, fun || function(){}, format);
 			_xhp.open("GET",url,bool);
 			_xhp.send(null);	
 		},
 		post : function(url,data,fun,format,bool){	
-			var _xhp = ll.ajax._xmlHttp();	
-			ll.ajax._AddEventToXHP(_xhp, fun || function(){}, format);
+			var _xhp = Z.ajax._xmlHttp();	
+			Z.ajax._AddEventToXHP(_xhp, fun || function(){}, format);
 			_xhp.open("POST",url,bool);
 			_xhp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 			_xhp.send(data);
@@ -234,12 +234,12 @@ if (typeof ll.ajax !== 'object'){
 /*--------------8<--------------8<-------------8<--------------8<-------------8<--------------8<-------------*/
 
 /*--------------8<--------------8<-------Array Begin-------8<--------------8<-------------*/
-if (typeof ll.array !== 'object'){
-	ll.array = window.ll.array = function (Arr) {
-		return new ll.array.fn.init(Arr) ;
+if (typeof Z.array !== 'object'){
+	Z.array = window.Z.array = function (Arr) {
+		return new Z.array.fn.init(Arr) ;
 	}
 	
-	ll.array.fn = ll.array.prototype = {                                                        
+	Z.array.fn = Z.array.prototype = {                                                        
 		init : function (Arr) {
 			if(typeof Arr === "object"){	
 				this[0] = Arr;	
@@ -331,7 +331,7 @@ if (typeof ll.array !== 'object'){
 		random : function(quantity,begin,end){
 			var ar = [];
 			for (var i = 0; i < quantity; i ++) {
-				var x = ll.math.randomNum(begin,end)
+				var x = Z.math.randomNum(begin,end)
 				ar.push(x);
 			}
 			return ar
@@ -374,15 +374,15 @@ if (typeof ll.array !== 'object'){
 			return newArr;	
 		}
 	}
-	ll.array.fn.init.prototype = ll.array.prototype;
+	Z.array.fn.init.prototype = Z.array.prototype;
 }
 /*--------------8<--------------8<-------Array End-------8<--------------8<-------------*/
 
 /*--------------8<--------------8<-------------8<--------------8<-------------8<--------------8<-------------*/
 
 /*--------------8<--------------8<-------Browser Begin-------8<--------------8<-------------*/
-if (typeof ll.browser !== 'object'){
-	ll.browser = {
+if (typeof Z.browser !== 'object'){
+	Z.browser = {
 		addFavorite : function(sURL,sTitle,notice){
 			try{
 				window.external.addFavorite(sURL, sTitle);
@@ -446,8 +446,8 @@ if (typeof ll.browser !== 'object'){
 /*--------------8<--------------8<-------------8<--------------8<-------------8<--------------8<-------------*/
 
 /*--------------8<--------------8<-------Cookie Begin-------8<--------------8<-------------*/
-if (typeof ll.cookie !== 'object'){
-	ll.cookie = {
+if (typeof Z.cookie !== 'object'){
+	Z.cookie = {
 		del: function(name, path, domain){
 			document.cookie = name + "=" +
 				((path) ? "; path=" + path : "") +
@@ -477,8 +477,8 @@ if (typeof ll.cookie !== 'object'){
 /*--------------8<--------------8<-------------8<--------------8<-------------8<--------------8<-------------*/
 
 /*--------------8<--------------8<-------Date Begin-------8<--------------8<-------------*/
-if (typeof ll.date !== 'object'){
-	ll.date = {
+if (typeof Z.date !== 'object'){
+	Z.date = {
 		add : function(day,num){
 			var val = day.valueOf();
 			val = val + num*24*60*60*1000;
@@ -514,16 +514,16 @@ if (typeof ll.date !== 'object'){
 /*--------------8<--------------8<-------------8<--------------8<-------------8<--------------8<-------------*/	
 
 /*--------------8<--------------8<-------DOM Begin-------8<--------------8<-------------*/
-if (typeof ll.dom !== 'object'){
+if (typeof Z.dom !== 'object'){
 
 	var undefined = undefined;
 	
-	ll.dom = window.ll.dom = ll.$ = function (selector, context) {
-		return new ll.dom.fn.init(selector,context) ;
+	Z.dom = window.Z.dom = Z.$ = function (selector, context) {
+		return new Z.dom.fn.init(selector,context) ;
 	},
 
 	
-	ll.dom.fn = ll.dom.prototype = {                       
+	Z.dom.fn = Z.dom.prototype = {                       
 		length : 0 ,                                  
 		init : function (selector) {
 			selector = selector || document;
@@ -705,7 +705,7 @@ if (typeof ll.dom !== 'object'){
 			this.each(function() {
 				cloneElement.push(this.cloneNode(boo))		
 			});
-			return ll.dom(cloneElement)
+			return Z.dom(cloneElement)
 		},
 		css : function (name, value) {
 			this.each(function (name, value) {
@@ -724,7 +724,7 @@ if (typeof ll.dom !== 'object'){
 			}
 		},
 		each : function (callback, args) { 
-			return ll.dom.each(this, callback, args);
+			return Z.dom.each(this, callback, args);
 		},
 		empty : function() {
 			this.each(function() {
@@ -732,23 +732,23 @@ if (typeof ll.dom !== 'object'){
 			})
 		},
 		eq : function(n){
-			return ll.dom(this[n]);	
+			return Z.dom(this[n]);	
 		},
 		even : function(){
 			var evenElement = [];
 			for(var i=0;i<this.length;i+=2){
 				evenElement.push(this[i])
 			}
-			return ll.dom(evenElement);		
+			return Z.dom(evenElement);		
 		},
 		fadeIn : function(speed){
 			this.each(function () {
-				ll.dom(this).fadeTo(1,speed)	
+				Z.dom(this).fadeTo(1,speed)	
 			})
 		},
 		fadeOut : function(speed){
 			this.each(function () {
-				ll.dom(this).fadeTo(0,speed)	
+				Z.dom(this).fadeTo(0,speed)	
 			})
 		},
 		fadeTo : function(toAlpha,speed){
@@ -760,7 +760,7 @@ if (typeof ll.dom !== 'object'){
 					nowAlpha = 0;
 				}
 				var getOpacity = function(){
-					if(ll.browser.ie){
+					if(Z.browser.ie){
 						if(me.style.filter){
 							nowAlpha = (me.style.filter).slice(14,-1)/ 100 ;
 						}
@@ -775,7 +775,7 @@ if (typeof ll.dom !== 'object'){
 				var setOpacity = function(transforAlpha){
 					getOpacity();
 					if(nowAlpha != toAlpha){
-						if(ll.browser.ie){
+						if(Z.browser.ie){
 							me.style.filter = "alpha(opacity=" +  transforAlpha * 100 + ")";
 						}else{
 							me.style.opacity = transforAlpha;	
@@ -784,7 +784,7 @@ if (typeof ll.dom !== 'object'){
 				}
 				var	timer = setInterval (function(){
 					if(toAlpha == 1){
-						ll.dom(me).show();
+						Z.dom(me).show();
 					}
 					if ( nowAlpha < toAlpha){
 						nowAlpha = nowAlpha - 0 + speed/1000;
@@ -794,7 +794,7 @@ if (typeof ll.dom !== 'object'){
 						setOpacity(nowAlpha);
 					}else{
 						if(toAlpha == 0){
-							ll.dom(me).hide();
+							Z.dom(me).hide();
 						}
 						clearInterval(timer);
 					}
@@ -802,7 +802,7 @@ if (typeof ll.dom !== 'object'){
 			})
 		},
 		first : function(){
-			return ll.dom(this[0]);
+			return Z.dom(this[0]);
 		},
 		getCss : function(address){
 			this.each(function() {
@@ -826,7 +826,7 @@ if (typeof ll.dom !== 'object'){
 			for(var i=num+1;i<this.length;i++){
 				gtElement.push(this[i])
 			}
-			return ll.dom(gtElement);
+			return Z.dom(gtElement);
 		},
 		hasClass : function(cls){
 			var l = false;
@@ -850,14 +850,14 @@ if (typeof ll.dom !== 'object'){
 			})
 		},
 		last : function(){
-			return ll.dom(this[this.length-1]);
+			return Z.dom(this[this.length-1]);
 		},
 		lt : function(num){
 			var ltElement = [];
 			for(var i=num-1;i>=0;i--){
 				ltElement.push(this[i])
 			}
-			return ll.dom(ltElement);
+			return Z.dom(ltElement);
 		},
 		next : function(){
 			var nextElement = [];
@@ -872,14 +872,14 @@ if (typeof ll.dom !== 'object'){
 			this.each(function() {
 				nextElement.push(getNextElement(this))		
 			});
-			return ll.dom(nextElement)
+			return Z.dom(nextElement)
 		},
 		odd : function(){
 			var oddElement = [];
 			for(var i=1;i<this.length;i+=2){
 				oddElement.push(this[i])
 			}
-			return ll.dom(oddElement);	
+			return Z.dom(oddElement);	
 		},
 		offset : function(direction){
 			var num = [];
@@ -895,7 +895,7 @@ if (typeof ll.dom !== 'object'){
 		on : function(name, fun){
 			var me = this ;
 			this.each(function(i){
-				ll.eventUtil.addHandler(me[i], name, fun);
+				Z.eventUtil.addHandler(me[i], name, fun);
         	});
         	return this;
     	},
@@ -904,7 +904,7 @@ if (typeof ll.dom !== 'object'){
 			this.each(function() {
 				parentElement.push(this.parentNode);
 			});
-			return ll.dom(parentElement);
+			return Z.dom(parentElement);
 		},
 		prepend : function(node){
 			this.each(function() {
@@ -924,7 +924,7 @@ if (typeof ll.dom !== 'object'){
 			this.each(function() {
 				prevElement.push(getPrevElement(this))		
 			});
-			return ll.dom(prevElement)
+			return Z.dom(prevElement)
 		},
 		remove : function() {
 			this.each(function() {
@@ -966,7 +966,7 @@ if (typeof ll.dom !== 'object'){
 					}
 				}
 			});			
-			return ll.dom(sibilingsElement);
+			return Z.dom(sibilingsElement);
 		},
 		size: function () { 
 			return this.length;
@@ -976,7 +976,7 @@ if (typeof ll.dom !== 'object'){
 			for(var i=start ;i<end;i++){
 				sliceElement.push(this[i])
 			}
-			return ll.dom(sliceElement);
+			return Z.dom(sliceElement);
 		},
 		text: function (val) {
 			if (val) {
@@ -1001,8 +1001,8 @@ if (typeof ll.dom !== 'object'){
 		}
 	}
 	
-	ll.dom.fn.init.prototype = ll.dom.prototype;	
-	ll.dom.each = function (object, callback, args) {
+	Z.dom.fn.init.prototype = Z.dom.prototype;	
+	Z.dom.each = function (object, callback, args) {
 		var i = 0, length = object.length;
 		if (args === undefined) {
 			for (var value = object[0];i < length && callback.call(value, i, value) !== false;value = object[++i]){}
@@ -1021,8 +1021,8 @@ if (typeof ll.dom !== 'object'){
 /*--------------8<--------------8<-------------8<--------------8<-------------8<--------------8<-------------*/	
 
 /*--------------8<--------------8<-------EventUtil Begin-------8<--------------8<-------------*/
-if (typeof ll.eventUtil !== 'object'){
-	ll.eventUtil = {
+if (typeof Z.eventUtil !== 'object'){
+	Z.eventUtil = {
 		addHandler: function(elem,type,handler){
 			if (elem.addEventListener) {
 				elem.addEventListener(type, handler, false);
@@ -1068,8 +1068,8 @@ if (typeof ll.eventUtil !== 'object'){
 /*--------------8<--------------8<-------------8<--------------8<-------------8<--------------8<-------------*/	
 
 /*--------------8<--------------8<-------Img Begin-------8<--------------8<-------------*/
-if (typeof ll.img !== 'object'){
-	ll.img = {
+if (typeof Z.img !== 'object'){
+	Z.img = {
 		isComplete : function(img){
 			if (!img.complete) {
 				return false;
@@ -1093,8 +1093,8 @@ if (typeof ll.img !== 'object'){
 /*--------------8<--------------8<-------------8<--------------8<-------------8<--------------8<-------------*/
 
 /*--------------8<--------------8<-------Math Begin-------8<--------------8<-------------*/		
-if (typeof ll.math !== 'object'){
-	ll.math = {
+if (typeof Z.math !== 'object'){
+	Z.math = {
 		randomColor : function(){
 			var color = Math.random(0, 0xFFFFFF);
 			return '#' + ('000000' + color.toString(16)).slice(-6);
@@ -1117,8 +1117,8 @@ if (typeof ll.math !== 'object'){
 /*--------------8<--------------8<-------------8<--------------8<-------------8<--------------8<-------------*/	
 
 /*--------------8<--------------8<-------page Begin-------8<--------------8<-------------*/
-if (typeof ll.page !== 'object'){
-	ll.page = {
+if (typeof Z.page !== 'object'){
+	Z.page = {
 		getHeight : function () {
 			var doc = document,
 			body = doc.body,
@@ -1212,8 +1212,8 @@ if (typeof ll.page !== 'object'){
 /*--------------8<--------------8<-------------8<--------------8<-------------8<--------------8<-------------*/
 
 /*--------------8<--------------8<-------platform Begin-------8<--------------8<-------------*/
-if (typeof ll.platform !== 'object'){
-	ll.platform = {
+if (typeof Z.platform !== 'object'){
+	Z.platform = {
 		isAndroid : /android/i.test(navigator.userAgent),
 		isBlackBerry : /BlackBerry/i.test(navigator.userAgent),
 		isIpad : /ipad/i.test(navigator.userAgent),
@@ -1231,8 +1231,8 @@ if (typeof ll.platform !== 'object'){
 /*--------------8<--------------8<-------------8<--------------8<-------------8<--------------8<-------------*/
 
 /*--------------8<--------------8<-------query Begin-------8<--------------8<-------------*/
-if (typeof ll.query !== 'object'){
-	ll.query = function(selector){
+if (typeof Z.query !== 'object'){
+	Z.query = function(selector){
 		if(document.querySelectorAll){
 			return document.querySelectorAll(selector)	
 		}
@@ -1331,11 +1331,11 @@ if (typeof ll.query !== 'object'){
 /*--------------8<--------------8<-------------8<--------------8<-------------8<--------------8<-------------*/
 
 /*--------------8<--------------8<-------regExp Begin-------8<--------------8<-------------*/
-if (typeof ll.regExp !== 'object'){
-	ll.regExp = {
+if (typeof Z.regExp !== 'object'){
+	Z.regExp = {
 		isAdult : function(str){
 			var s = str;
-			if( ll.regExp.isIdcard(s)){
+			if( Z.regExp.isIdcard(s)){
 				var birthday = (new Date(s.slice(6,10),s.slice(10,12)-1,s.slice(12,14)))
 				 ,  today = (new Date()) ;
 				 return ( today - birthday > 18 * 365 * 24 * 60 * 60 * 1000 )
@@ -1382,11 +1382,11 @@ if (typeof ll.regExp !== 'object'){
 /*--------------8<--------------8<-------------8<--------------8<-------------8<--------------8<-------------*/
 
 /*--------------8<--------------8<-------String Begin-------8<--------------8<-------------*/
-if (typeof ll.string !== 'object'){
-	ll.string = window.ll.string = function (str) {
-		return new ll.string.fn.init(str) ;
+if (typeof Z.string !== 'object'){
+	Z.string = window.Z.string = function (str) {
+		return new Z.string.fn.init(str) ;
 	}
-	ll.string.fn = ll.string.prototype = {                                                   
+	Z.string.fn = Z.string.prototype = {                                                   
 		init : function (str) {
 			if(typeof str === "string"){	
 				this[0] = str;	
@@ -1658,7 +1658,7 @@ if (typeof ll.string !== 'object'){
 			}		
 		}
 	}
-	ll.string.fn.init.prototype = ll.string.prototype;
+	Z.string.fn.init.prototype = Z.string.prototype;
 }
 /*--------------8<--------------8<-------String End-------8<--------------8<-------------*/
 
@@ -1666,8 +1666,8 @@ if (typeof ll.string !== 'object'){
 
 /*--------------8<--------------8<-------URL Begin-------8<--------------8<-------------*/
 
-if (typeof ll.url !== 'object'){
-	ll.url = {
+if (typeof Z.url !== 'object'){
+	Z.url = {
 		getQueryString : function(){
 			var result = [], queryString = location.search.substring(1)
 			,	re = /([^&=]+)=([^&]*)/g, m;
