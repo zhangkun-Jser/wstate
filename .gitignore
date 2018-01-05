@@ -1,0 +1,14 @@
+
+# files
+*.log
+*.zip
+.DS_Store
+test.html
+
+# folders
+node_modules/*
+coverage/*
+babelLib/*
+
+# Editor directories and files
+.idea
