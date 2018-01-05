@@ -14,7 +14,7 @@ new Promise(() => {
     if (err) throw (err)
     let folderList = fs.readdirSync(path.resolve(rootPath, 'babelLib'))
     folderList.forEach((item, index) => {
-      copy(`babelLib/${item}/*.js`, rootPath, function (err, files) {
+      copy(`babelLib/${item}/*.js`, 'lib', function (err, files) {
         if (err) throw err;
         if (index === folderList.length - 1) {
           console.log(chalk.cyan('  Copy complete.\n'))

@@ -6,12 +6,12 @@
   "scripts": {
     "build": "node script/build.js",
     "singleCopy": "node script/singleCopy.js",
-    "jsBabel":"babel src -d babelLib",
+    "jsBabel": "babel src -d babelLib",
     "test": "karma start script/karma.conf.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chenxuan0000/comutils"
+    "url": "git+https://github.com/zhangkun-Jser/spanner.js"
   },
   "keywords": [
     "util",
