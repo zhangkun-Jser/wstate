@@ -1,5 +1,5 @@
 # autils &emsp;[![GitHub forks](https://img.shields.io/github/forks/zhangkun-Jser/autils.svg?style=social&label=Fork)](https://www.npmjs.com/package/autils)[![GitHub stars](https://img.shields.io/github/stars/zhangkun-Jser/autils.svg?style=social&label=Stars)](https://www.npmjs.com/package/autils)
-[![npm](https://img.shields.io/npm/dw/zhangkun-Jser/autils.svg)]()
+
 [![Build Status](https://img.shields.io/appveyor/ci/gruntjs/grunt/master.svg) ![LICENSE MIT](https://img.shields.io/npm/l/express.svg)](https://www.npmjs.com/package/autils) ![](https://img.shields.io/npm/v/autils.svg)
 
  
@@ -27,8 +27,8 @@ $ npm install --save-dev autils
 
 不需要完整引入所有函数，只引入需要使用的方法即可
 ``` javascript
-// 只引入部分方法('outils/lib/<方法名>')
-const isUrl = require('outils/lib/isUrl')
+// 只引入部分方法('autils/lib/<方法名>')
+const isUrl = require('autils/lib/isUrl')
 const isUrl = isUrl()
 ```
 
