@@ -1,8 +1,8 @@
 {
-  "name": "comutils",
-  "version": "1.1.7",
-  "description": "前端代码常用工具类",
-  "main": "build/comutils.min.js",
+  "name": "autils",
+  "version": "1.1.0",
+  "description": "前端常用工具类",
+  "main": "build/autils.min.js",
   "scripts": {
     "build": "node script/build.js",
     "singleCopy": "node script/singleCopy.js",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhangkun-Jser/spanner.js"
+    "url": "git+https://github.com/zhangkun-Jser/autils"
   },
   "keywords": [
     "util",
     "tool",
-    "commonUtil"
+    "autils"
   ],
-  "author": "chenxuan",
+  "author": "zhangkun",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.0",

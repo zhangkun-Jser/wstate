@@ -11,20 +11,20 @@
             <input type="text" style="width: 300px;height: 30px" id="test">
         </div>
     </body>
-    <script src="build/comutils.min.js"></script>
+    <script src="build/autils.min.js"></script>
     <script>
-      console.log(comutils.copyObj({a: 1}, {c: 11}))
-      window.onscroll = comutils.throttle(function () {
+      console.log(autils.copyObj({a: 1}, {c: 11}))
+      window.onscroll = autils.throttle(function () {
         console.log(11)
       }, 1000)
 
       setTimeout(function () {
-        comutils.scrollApi.scrollTo(300,600)
+        autils.scrollApi.scrollTo(300,600)
       },1500)
 
-      document.getElementById('yy').addEventListener('click', comutils.debounce(function () {
+      document.getElementById('yy').addEventListener('click', autils.debounce(function () {
         console.log(11)
       }, 1000))
-      console.log(comutils.secretInfo(13812333069))
+      console.log(autils.secretInfo(13812333069))
     </script>
 </html>
