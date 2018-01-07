@@ -1,7 +1,7 @@
 {
   "name": "autils",
-  "version": "1.1.0",
-  "description": "前端常用工具类",
+  "version": "1.1.1",
+  "description": "前端公用函数库",
   "main": "build/autils.min.js",
   "scripts": {
     "build": "node script/build.js",

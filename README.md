@@ -3,9 +3,9 @@
 [![Build Status](https://img.shields.io/appveyor/ci/gruntjs/grunt/master.svg) ![LICENSE MIT](https://img.shields.io/npm/l/express.svg)](https://www.npmjs.com/package/autils) ![](https://img.shields.io/npm/v/autils.svg)
 
  
-前端代码常用工具类  
+前端公用函数库  
 
-> 目的：集成前端常用工具类
+> 目的：封装前端代码中常用的函数，提高开发效率。如果你也有常用的代码，欢迎为本项目提交pr。
 
 ## 安装使用
 
@@ -107,6 +107,10 @@ const isUrl = isUrl()
 
 ### animationFrame 
 #### &emsp;&emsp;[animationFrame][animationFrame]&emsp;&emsp;AnimationFrame简单兼容hack
+
+
+## License
+autils is open source and released under the [MIT License](LICENSE).
 
 [arrayEqual]:https://github.com/zhangkun-Jser/autils/blob/master/src/arrayEqual.js
 [animationFrame]:https://github.com/zhangkun-Jser/autils/blob/master/src/animationFrame/animationFrame.js
