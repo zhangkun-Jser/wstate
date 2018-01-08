@@ -1,5 +1,5 @@
 # autils &emsp;[![GitHub forks](https://img.shields.io/github/forks/zhangkun-Jser/autils.svg?style=social&label=Fork)](https://www.npmjs.com/package/autils)[![GitHub stars](https://img.shields.io/github/stars/zhangkun-Jser/autils.svg?style=social&label=Stars)](https://www.npmjs.com/package/autils)
-[![npm](https://img.shields.io/npm/dw/zhangkun-jser/autils.svg)]()
+[![npm](https://img.shields.io/npm/dw/autils.svg)]()
 [![Build Status](https://img.shields.io/appveyor/ci/gruntjs/grunt/master.svg) ![LICENSE MIT](https://img.shields.io/npm/l/express.svg)](https://www.npmjs.com/package/autils) ![](https://img.shields.io/npm/v/autils.svg)
 
  
