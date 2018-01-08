@@ -35,7 +35,9 @@ const stringfyQs = require('./url/stringfyQs')
 const getRandom = require('./random/getRandom')
 const shuffle = require('./collections/shuffle')
 const arrayEqual = require('./array/arrayEqual')
+const intersection = require('./array/intersection')
 const animationFrame = require('./animationFrame/animationFrame')
+const download = require('./download/download')
 
 
 module.exports = {
@@ -63,5 +65,7 @@ module.exports = {
   getRandom,
   shuffle,
   arrayEqual,
-  animationFrame
+  intersection,
+  animationFrame,
+  download
 }

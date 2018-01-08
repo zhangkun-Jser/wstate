@@ -1,5 +1,5 @@
 # autils &emsp;[![GitHub forks](https://img.shields.io/github/forks/zhangkun-Jser/autils.svg?style=social&label=Fork)](https://www.npmjs.com/package/autils)[![GitHub stars](https://img.shields.io/github/stars/zhangkun-Jser/autils.svg?style=social&label=Stars)](https://www.npmjs.com/package/autils)
-
+[![npm](https://img.shields.io/npm/dw/zhangkun-jser/autils.svg)]()
 [![Build Status](https://img.shields.io/appveyor/ci/gruntjs/grunt/master.svg) ![LICENSE MIT](https://img.shields.io/npm/l/express.svg)](https://www.npmjs.com/package/autils) ![](https://img.shields.io/npm/v/autils.svg)
 
  
@@ -28,8 +28,8 @@ $ npm install --save-dev autils
 不需要完整引入所有函数，只引入需要使用的方法即可
 ``` javascript
 // 只引入部分方法('autils/lib/<方法名>')
-const isUrl = require('autils/lib/isUrl')
-const isUrl = isUrl()
+const getOs = require('autils/lib/getOs')
+const getOs = getOs()
 ```
 
 ## API文档
@@ -104,9 +104,13 @@ const isUrl = isUrl()
 
 ### array 
 #### &emsp;&emsp;[arrayEqual][arrayEqual]&emsp;&emsp;判断数组是否相等
+#### &emsp;&emsp;[intersection][intersection]&emsp;&emsp;输出2数组的交叉项
 
 ### animationFrame 
 #### &emsp;&emsp;[animationFrame][animationFrame]&emsp;&emsp;AnimationFrame简单兼容hack
+
+### download 
+#### &emsp;&emsp;[download][download]&emsp;&emsp;根据链接生成下载
 
 
 ## License
@@ -138,3 +142,5 @@ autils is open source and released under the [MIT License](LICENSE).
 [stringfyQs]:https://github.com/zhangkun-Jser/autils/blob/master/src/url/stringfyQs.js
 [localStorageApi]:https://github.com/zhangkun-Jser/autils/blob/master/src/stroge/localStorage.js
 [cookieApi]:https://github.com/zhangkun-Jser/autils/blob/master/src/cookie/cookie.js
+[intersection]:https://github.com/zhangkun-Jser/autils/blob/master/src/array/intersection.js
+[download]:https://github.com/zhangkun-Jser/autils/blob/master/src/download/download.js

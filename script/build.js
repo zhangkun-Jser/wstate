@@ -11,7 +11,7 @@ const rootPath = path.resolve(__dirname, '../')
 
 new Promise((resolve, reject) => {
   // 构建全量压缩包
-  let building = ora('building...')
+  var building = ora('building...')
   building.start()
   rm(path.resolve(rootPath, 'build', `${pkg.name}.min.js`), err => {
     if (err) throw (err)

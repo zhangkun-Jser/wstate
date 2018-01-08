@@ -8,11 +8,11 @@ const rootPath = path.resolve(__dirname, '../')
 
 new Promise(() => {
   // 替换单模块文件
-  let copying = ora('copying...')
+  var copying = ora('copying...')
   copying.start()
   rm('*.js', err => {
     if (err) throw (err)
-    let folderList = fs.readdirSync(path.resolve(rootPath, 'src'))
+    var folderList = fs.readdirSync(path.resolve(rootPath, 'src'))
     folderList.forEach((item, index) => {
       copy(`src/${item}/*.js`, 'lib', function (err, files) {
         if (err) throw err;
