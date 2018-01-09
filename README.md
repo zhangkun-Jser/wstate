@@ -118,10 +118,10 @@ const object = copyObj(obj1,obj2)
 [shuffle]:https://github.com/zhangkun-Jser/autils/blob/master/src/array/shuffle.js
 [throttle]:https://github.com/zhangkun-Jser/autils/blob/master/src/function/throttle.js
 [debounce]:https://github.com/zhangkun-Jser/autils/blob/master/src/function/debounce.js
-[getScrollTop]:https://github.com/proYang/outils/blob/master/src/dom/getScrollTop.js
-[offset]:https://github.com/proYang/outils/blob/master/src/dom/offset.js
-[scrollTo]:https://github.com/proYang/outils/blob/master/src/dom/scrollTo.js
-[setScrollTop]:https://github.com/proYang/outils/blob/master/src/dom/setScrollTop.js
+[getScrollTop]:https://github.com/zhangkun-Jser/autils/blob/master/src/dom/getScrollTop.js
+[offset]:https://github.com/zhangkun-Jser/autils/blob/master/src/dom/offset.js
+[scrollTo]:https://github.com/zhangkun-Jser/autils/blob/master/src/dom/scrollTo.js
+[setScrollTop]:https://github.com/zhangkun-Jser/autils/blob/master/src/dom/setScrollTop.js
 [softKeyCal]:https://github.com/zhangkun-Jser/autils/blob/master/src/dom/softKeyCal.js
 [isWeixin]:https://github.com/zhangkun-Jser/autils/blob/master/src/device/isWeixin.js
 [mobileType]:https://github.com/zhangkun-Jser/autils/blob/master/src/device/mobileType.js
