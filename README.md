@@ -34,12 +34,10 @@ const object = copyObj(obj1,obj2)
 
 ## API文档
 ### Class
-#### &emsp;&emsp;[elApi][elApi]&emsp;&emsp;element的操作api
-##### &emsp;&emsp;&emsp;&emsp;elApi.isElement(el) //是否是该元素节点
-##### &emsp;&emsp;&emsp;&emsp;elApi.hasClass(el,cls)
-##### &emsp;&emsp;&emsp;&emsp;elApi.addClass(el,cls)
-##### &emsp;&emsp;&emsp;&emsp;elApi.removeClass(el,cls)
-##### &emsp;&emsp;&emsp;&emsp;elApi.toggleClass(el,cls)
+#### &emsp;&emsp;[hasClass][hasClass]&emsp;&emsp;检查元素是否有class
+#### &emsp;&emsp;[addClass][addClass]&emsp;&emsp;为元素添加class
+#### &emsp;&emsp;[removeClass][removeClass]&emsp;&emsp;为元素移除class
+#### &emsp;&emsp;[toggleClass][toggleClass]&emsp;&emsp;为元素切换class
 
 ### Object  
 #### &emsp;&emsp;[copyObj][copyObj]&emsp;&emsp;对象合并/深浅拷贝
@@ -99,10 +97,8 @@ const object = copyObj(obj1,obj2)
 ### random 
 #### &emsp;&emsp;[getRandom][getRandom]&emsp;&emsp;返回选定返回的随机整数
 
-### collections 
-#### &emsp;&emsp;[shuffle][shuffle]&emsp;&emsp;数组打乱随机乱序
-
 ### array 
+#### &emsp;&emsp;[shuffle][shuffle]&emsp;&emsp;数组打乱随机乱序
 #### &emsp;&emsp;[arrayEqual][arrayEqual]&emsp;&emsp;判断数组是否相等
 #### &emsp;&emsp;[intersection][intersection]&emsp;&emsp;输出2数组的交叉项
 
@@ -112,14 +108,14 @@ const object = copyObj(obj1,obj2)
 ### download 
 #### &emsp;&emsp;[download][download]&emsp;&emsp;根据链接生成下载
 
-
-## License
-autils is open source and released under the [MIT License](LICENSE).
-
-[arrayEqual]:https://github.com/zhangkun-Jser/autils/blob/master/src/arrayEqual.js
+[hasClass]:https://github.com/zhangkun-Jser/autils/blob/master/lib/hasClass.js
+[addClass]:https://github.com/zhangkun-Jser/autils/blob/master/lib/addClass.js
+[removeClass]:https://github.com/zhangkun-Jser/autils/blob/master/lib/removeClass.js
+[toggleClass]:https://github.com/zhangkun-Jser/autils/blob/master/lib/toggleClass.js
+[arrayEqual]:https://github.com/zhangkun-Jser/autils/blob/master/lib/arrayEqual.js
 [animationFrame]:https://github.com/zhangkun-Jser/autils/blob/master/src/animationFrame/animationFrame.js
 [getRandom]:https://github.com/zhangkun-Jser/autils/blob/master/src/random/getRandom.js
-[shuffle]:https://github.com/zhangkun-Jser/autils/blob/master/src/collections/shuffle.js
+[shuffle]:https://github.com/zhangkun-Jser/autils/blob/master/src/array/shuffle.js
 [throttle]:https://github.com/zhangkun-Jser/autils/blob/master/src/function/throttle.js
 [debounce]:https://github.com/zhangkun-Jser/autils/blob/master/src/function/debounce.js
 [scrollApi]:https://github.com/zhangkun-Jser/autils/blob/master/src/dom/scrollApi.js
@@ -129,7 +125,6 @@ autils is open source and released under the [MIT License](LICENSE).
 [getOs]:https://github.com/zhangkun-Jser/autils/blob/master/src/device/getOs.js
 [secretInfo]:https://github.com/zhangkun-Jser/autils/blob/master/src/secret/secretInfo.js
 [typeOf]:https://github.com/zhangkun-Jser/autils/blob/master/src/type/typeOf.js
-[elApi]:https://github.com/zhangkun-Jser/autils/blob/master/src/element/elApi.js
 [copyObj]:https://github.com/zhangkun-Jser/autils/blob/master/src/object/copyObj.js
 [isEmail]:https://github.com/zhangkun-Jser/autils/blob/master/src/regexp/isEmail.js
 [isIdCard]:https://github.com/zhangkun-Jser/autils/blob/master/src/regexp/isIdCard.js
@@ -144,3 +139,7 @@ autils is open source and released under the [MIT License](LICENSE).
 [cookieApi]:https://github.com/zhangkun-Jser/autils/blob/master/src/cookie/cookie.js
 [intersection]:https://github.com/zhangkun-Jser/autils/blob/master/src/array/intersection.js
 [download]:https://github.com/zhangkun-Jser/autils/blob/master/src/download/download.js
+
+
+## License
+autils is open source and released under the [MIT License](LICENSE).

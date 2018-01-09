@@ -2,7 +2,10 @@
  * @desc webpack打包入口
  */
 
-const elApi = require('./element/elApi')
+const addClass = require('./class/addClass')
+const hasClass = require('./class/hasClass')
+const removeClass = require('./class/removeClass')
+const toggleClass = require('./class/toggleClass')
 
 const copyObj = require('./object/copyObj')
 
@@ -33,7 +36,7 @@ const secretInfo = require('./secret/secretInfo')
 const getUrlParams = require('./url/getUrlParams')
 const stringfyQs = require('./url/stringfyQs')
 const getRandom = require('./random/getRandom')
-const shuffle = require('./collections/shuffle')
+const shuffle = require('./array/shuffle')
 const arrayEqual = require('./array/arrayEqual')
 const intersection = require('./array/intersection')
 const animationFrame = require('./animationFrame/animationFrame')
@@ -41,7 +44,10 @@ const download = require('./download/download')
 
 
 module.exports = {
-  elApi,
+  addClass,
+  hasClass,
+  removeClass,
+  toggleClass,
   copyObj,
   isEmail,
   isIdCard,
