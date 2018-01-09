@@ -16,7 +16,12 @@ const isUrl = require('./regexp/isUrl')
 const priceSubstr = require('./regexp/priceSubstr')
 
 const cookieApi = require('./cookie/cookie')
-const scrollApi = require('./dom/scrollApi')
+
+const getScrollTop = require('./dom/getScrollTop')
+const offset = require('./dom/offset')
+const scrollTo = require('./dom/scrollTo')
+const setScrollTop = require('./dom/setScrollTop')
+const softKeyCal = require('./dom/softKeyCal')
 
 const localStorageApi = require('./stroge/localStorage')
 
@@ -44,6 +49,11 @@ const download = require('./download/download')
 
 
 module.exports = {
+  setScrollTop,
+  scrollTo,
+  offset,
+  getScrollTop,
+  softKeyCal,
   addClass,
   hasClass,
   removeClass,
@@ -55,7 +65,6 @@ module.exports = {
   isUrl,
   priceSubstr,
   cookieApi,
-  scrollApi,
   getOs,
   localStorageApi,
   formatPassTime,

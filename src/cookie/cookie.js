@@ -1,8 +1,8 @@
 /**
  * @desc   cookie
- |*|  * cookieApi.set(name, value[, end[, path[, domain[, secure]]]])
+ |*|  * cookieApi.set(name, value, end, path, domain, secure)
  |*|  * cookieApi.get(name)
- |*|  * cookieApi.remove(name[, path], domain)
+ |*|  * cookieApi.remove(name, path, domain)
  |*|  * cookieApi.has(name)
  |*|  * cookieApi.keys()
  */

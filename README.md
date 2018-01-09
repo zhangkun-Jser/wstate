@@ -39,8 +39,12 @@ const object = copyObj(obj1,obj2)
 #### &emsp;&emsp;[removeClass][removeClass]&emsp;&emsp;为元素移除class
 #### &emsp;&emsp;[toggleClass][toggleClass]&emsp;&emsp;为元素切换class
 
-### Object  
-#### &emsp;&emsp;[copyObj][copyObj]&emsp;&emsp;对象合并/深浅拷贝
+### dom
+#### &emsp;&emsp;[getScrollTop][getScrollTop]&emsp;&emsp;获取滚动条距顶部的距离
+#### &emsp;&emsp;[setScrollTop][setScrollTop]&emsp;&emsp;设置滚动条距顶部的距离
+#### &emsp;&emsp;[scrollTo][scrollTo]&emsp;&emsp;在${duration}时间内，滚动条平滑滚动到${to}指定位置
+#### &emsp;&emsp;[offset][offset]&emsp;&emsp;获取一个元素的距离文档(document)的位置，类似jQ中的offset()
+#### &emsp;&emsp;[softKeyCal][softKeyCal]&emsp;&emsp;移动端端软键盘呼出和消失的事件回调
 
 ### Regexp  
 #### &emsp;&emsp;[isEmail][isEmail]&emsp;&emsp;判断是否为邮箱地址 
@@ -56,6 +60,14 @@ const object = copyObj(obj1,obj2)
 #### &emsp;&emsp;[formatPassTime][formatPassTime]&emsp;&emsp;格式化时间戳为天时分秒[d,h,m,s]
 #### &emsp;&emsp;[formatTime][formatTime]&emsp;&emsp;格式化时间戳为年月日时分秒[y-m-d h:m:s]
 
+### Object  
+#### &emsp;&emsp;[copyObj][copyObj]&emsp;&emsp;对象合并/深浅拷贝
+
+### array 
+#### &emsp;&emsp;[shuffle][shuffle]&emsp;&emsp;数组打乱随机乱序
+#### &emsp;&emsp;[arrayEqual][arrayEqual]&emsp;&emsp;判断数组是否相等
+#### &emsp;&emsp;[intersection][intersection]&emsp;&emsp;输出2数组的交叉项
+
 ### device  
 #### &emsp;&emsp;[isWeixin][isWeixin]&emsp;&emsp;是否是微信浏览器
 #### &emsp;&emsp;[mobileType][mobileType]&emsp;&emsp;设备类型iphone or android
@@ -65,27 +77,20 @@ const object = copyObj(obj1,obj2)
 #### &emsp;&emsp;[throttle][throttle]&emsp;&emsp;节流函数
 #### &emsp;&emsp;[debounce][debounce]&emsp;&emsp;防抖函数
 
-### dom
-#### &emsp;&emsp;[scrollApi][scrollApi]&emsp;&emsp;scrollApi方法
-##### &emsp;&emsp;&emsp;&emsp;scrollApi.getScrollTop()
-##### &emsp;&emsp;&emsp;&emsp;scrollApi.setScrollTop(h)
-##### &emsp;&emsp;&emsp;&emsp;scrollApi.scrollTo(to,duration)
-#### &emsp;&emsp;[softKeyCal][softKeyCal]&emsp;&emsp;移动端端软键盘呼出和消失的事件回调
-
 ### localStorage
 #### &emsp;&emsp;[localStorageApi][localStorageApi]&emsp;&emsp;本地持久化存储
-##### &emsp;&emsp;&emsp;&emsp;localStorageApi.set(name)
-##### &emsp;&emsp;&emsp;&emsp;localStorageApi.get(name)
-##### &emsp;&emsp;&emsp;&emsp;localStorageApi.remove(name)
-##### &emsp;&emsp;&emsp;&emsp;localStorageApi.clear(name)
+##### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;localStorageApi.set
+##### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;localStorageApi.get
+##### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;localStorageApi.remove
+##### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;localStorageApi.clear
 
 ### cookie
 #### &emsp;&emsp;[cookieApi][cookieApi]&emsp;&emsp;cookie存储(适用和服务端交互)
-##### &emsp;&emsp;&emsp;&emsp;cookieApi.set(name, value[, end[, path[, domain[, secure]]]])
-##### &emsp;&emsp;&emsp;&emsp;cookieApi.get(name)
-##### &emsp;&emsp;&emsp;&emsp;cookieApi.has(name)
-##### &emsp;&emsp;&emsp;&emsp;cookieApi.remove(name)
-##### &emsp;&emsp;&emsp;&emsp;cookieApi.keys()
+##### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cookieApi.set
+##### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cookieApi.get
+##### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cookieApi.remove
+##### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cookieApi.has
+##### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cookieApi.keys
 
 ### Type
 #### &emsp;&emsp;[typeOf][typeOf]&emsp;&emsp;判断类型
@@ -96,11 +101,6 @@ const object = copyObj(obj1,obj2)
 
 ### random 
 #### &emsp;&emsp;[getRandom][getRandom]&emsp;&emsp;返回选定返回的随机整数
-
-### array 
-#### &emsp;&emsp;[shuffle][shuffle]&emsp;&emsp;数组打乱随机乱序
-#### &emsp;&emsp;[arrayEqual][arrayEqual]&emsp;&emsp;判断数组是否相等
-#### &emsp;&emsp;[intersection][intersection]&emsp;&emsp;输出2数组的交叉项
 
 ### animationFrame 
 #### &emsp;&emsp;[animationFrame][animationFrame]&emsp;&emsp;AnimationFrame简单兼容hack
@@ -118,7 +118,10 @@ const object = copyObj(obj1,obj2)
 [shuffle]:https://github.com/zhangkun-Jser/autils/blob/master/src/array/shuffle.js
 [throttle]:https://github.com/zhangkun-Jser/autils/blob/master/src/function/throttle.js
 [debounce]:https://github.com/zhangkun-Jser/autils/blob/master/src/function/debounce.js
-[scrollApi]:https://github.com/zhangkun-Jser/autils/blob/master/src/dom/scrollApi.js
+[getScrollTop]:https://github.com/proYang/outils/blob/master/src/dom/getScrollTop.js
+[offset]:https://github.com/proYang/outils/blob/master/src/dom/offset.js
+[scrollTo]:https://github.com/proYang/outils/blob/master/src/dom/scrollTo.js
+[setScrollTop]:https://github.com/proYang/outils/blob/master/src/dom/setScrollTop.js
 [softKeyCal]:https://github.com/zhangkun-Jser/autils/blob/master/src/dom/softKeyCal.js
 [isWeixin]:https://github.com/zhangkun-Jser/autils/blob/master/src/device/isWeixin.js
 [mobileType]:https://github.com/zhangkun-Jser/autils/blob/master/src/device/mobileType.js
