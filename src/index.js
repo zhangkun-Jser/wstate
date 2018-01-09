@@ -2,7 +2,7 @@
  * @desc webpack打包入口
  */
 
-const classApi = require('./class/classApi')
+const elApi = require('./element/elApi')
 
 const copyObj = require('./object/copyObj')
 
@@ -41,7 +41,7 @@ const download = require('./download/download')
 
 
 module.exports = {
-  classApi,
+  elApi,
   copyObj,
   isEmail,
   isIdCard,

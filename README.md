@@ -1,11 +1,11 @@
 # autils &emsp;[![GitHub forks](https://img.shields.io/github/forks/zhangkun-Jser/autils.svg?style=social&label=Fork)](https://www.npmjs.com/package/autils)[![GitHub stars](https://img.shields.io/github/stars/zhangkun-Jser/autils.svg?style=social&label=Stars)](https://www.npmjs.com/package/autils)
-[![npm](https://img.shields.io/npm/dw/autils.svg)]()
+[![npm](https://img.shields.io/npm/dw/autils.svg)](https://www.npmjs.com/package/autils)
 [![Build Status](https://img.shields.io/appveyor/ci/gruntjs/grunt/master.svg) ![LICENSE MIT](https://img.shields.io/npm/l/express.svg)](https://www.npmjs.com/package/autils) ![](https://img.shields.io/npm/v/autils.svg)
 
  
-前端公用函数库  
+前端常用函数库  
 
-> 目的：封装前端代码中常用的函数，提高开发效率。如果你也有常用的代码，欢迎为本项目提交pr。
+> 目的：封装前端代码经常使用的函数，提高开发效率。如果你也有常用的代码，欢迎为本项目提交PR。
 
 ## 安装使用
 
@@ -20,7 +20,7 @@
 
 2. 使用npm安装
 ``` bash
-$ npm install --save-dev autils
+$ npm install -D autils
 ```
 
 **推荐使用方法**  
@@ -28,18 +28,18 @@ $ npm install --save-dev autils
 不需要完整引入所有函数，只引入需要使用的方法即可
 ``` javascript
 // 只引入部分方法('autils/lib/<方法名>')
-const getOs = require('autils/lib/getOs')
-const getOs = getOs()
+const copyObj = require('autils/lib/copyObj')
+const object = copyObj(obj1,obj2)
 ```
 
 ## API文档
 ### Class
-#### &emsp;&emsp;[classApi][classApi]&emsp;&emsp;className的操作api
-##### &emsp;&emsp;&emsp;&emsp;classApi.isElement(el) //是否元素节点
-##### &emsp;&emsp;&emsp;&emsp;classApi.hasClass(el,cls)
-##### &emsp;&emsp;&emsp;&emsp;classApi.addClass(el,cls)
-##### &emsp;&emsp;&emsp;&emsp;classApi.removeClass(el,cls)
-##### &emsp;&emsp;&emsp;&emsp;classApi.toggleClass(el,cls)
+#### &emsp;&emsp;[elApi][elApi]&emsp;&emsp;element的操作api
+##### &emsp;&emsp;&emsp;&emsp;elApi.isElement(el) //是否是该元素节点
+##### &emsp;&emsp;&emsp;&emsp;elApi.hasClass(el,cls)
+##### &emsp;&emsp;&emsp;&emsp;elApi.addClass(el,cls)
+##### &emsp;&emsp;&emsp;&emsp;elApi.removeClass(el,cls)
+##### &emsp;&emsp;&emsp;&emsp;elApi.toggleClass(el,cls)
 
 ### Object  
 #### &emsp;&emsp;[copyObj][copyObj]&emsp;&emsp;对象合并/深浅拷贝
@@ -129,7 +129,7 @@ autils is open source and released under the [MIT License](LICENSE).
 [getOs]:https://github.com/zhangkun-Jser/autils/blob/master/src/device/getOs.js
 [secretInfo]:https://github.com/zhangkun-Jser/autils/blob/master/src/secret/secretInfo.js
 [typeOf]:https://github.com/zhangkun-Jser/autils/blob/master/src/type/typeOf.js
-[classApi]:https://github.com/zhangkun-Jser/autils/blob/master/src/class/classApi.js
+[elApi]:https://github.com/zhangkun-Jser/autils/blob/master/src/element/elApi.js
 [copyObj]:https://github.com/zhangkun-Jser/autils/blob/master/src/object/copyObj.js
 [isEmail]:https://github.com/zhangkun-Jser/autils/blob/master/src/regexp/isEmail.js
 [isIdCard]:https://github.com/zhangkun-Jser/autils/blob/master/src/regexp/isIdCard.js
