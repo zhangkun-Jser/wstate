@@ -8,6 +8,7 @@ const removeClass = require('./class/removeClass')
 const toggleClass = require('./class/toggleClass')
 
 const copyObj = require('./object/copyObj')
+const isEmptyObject = require('./object/isEmptyObject')
 
 const isEmail = require('./regexp/isEmail')
 const isIdCard = require('./regexp/isIdCard')
@@ -44,11 +45,11 @@ const getRandom = require('./random/getRandom')
 const shuffle = require('./array/shuffle')
 const arrayEqual = require('./array/arrayEqual')
 const intersection = require('./array/intersection')
-const animationFrame = require('./animationFrame/animationFrame')
 const download = require('./download/download')
 
 
 module.exports = {
+  isEmptyObject,
   setScrollTop,
   scrollTo,
   offset,
@@ -81,6 +82,5 @@ module.exports = {
   shuffle,
   arrayEqual,
   intersection,
-  animationFrame,
   download
 }
