@@ -20,16 +20,16 @@
 
 2. 使用npm安装
 ``` bash
-$ npm install -D autils
+  $ npm install -D autils
 ```
 
 **推荐使用方法**  
 
 不需要完整引入所有函数，只引入需要使用的方法即可
 ``` javascript
-// 只引入部分方法('autils/lib/<方法名>')
-const copyObj = require('autils/lib/copyObj')
-const object = copyObj(obj1,obj2)
+  // 只引入部分方法('autils/lib/<方法名>')
+  const copyObj = require('autils/lib/copyObj')
+  const object = copyObj(obj1,obj2)
 ```
 
 ## API文档
@@ -47,10 +47,10 @@ const object = copyObj(obj1,obj2)
 #### &emsp;&emsp;[softKeyCal][softKeyCal]&emsp;&emsp;移动端端软键盘呼出和消失的事件回调
 
 ### Regexp  
+#### &emsp;&emsp;[isUrl][isUrl]&emsp;&emsp;判断是否为URL地址
 #### &emsp;&emsp;[isEmail][isEmail]&emsp;&emsp;判断是否为邮箱地址 
 #### &emsp;&emsp;[isIdCard][isIdCard]&emsp;&emsp;判断是否为身份证号
 #### &emsp;&emsp;[isPhoneNum][isPhoneNum]&emsp;&emsp;判断是否为手机号  
-#### &emsp;&emsp;[isUrl][isUrl]&emsp;&emsp;判断是否为URL地址
 #### &emsp;&emsp;[priceSubstr][priceSubstr]&emsp;&emsp;千位分割方法
 
 ### Secret
@@ -62,6 +62,7 @@ const object = copyObj(obj1,obj2)
 
 ### Object  
 #### &emsp;&emsp;[copyObj][copyObj]&emsp;&emsp;对象合并/深浅拷贝
+#### &emsp;&emsp;[isEmptyObject][isEmptyObject]&emsp;&emsp;判断Object是否为空
 
 ### array 
 #### &emsp;&emsp;[shuffle][shuffle]&emsp;&emsp;数组打乱随机乱序
@@ -102,9 +103,6 @@ const object = copyObj(obj1,obj2)
 ### random 
 #### &emsp;&emsp;[getRandom][getRandom]&emsp;&emsp;返回选定返回的随机整数
 
-### animationFrame 
-#### &emsp;&emsp;[animationFrame][animationFrame]&emsp;&emsp;AnimationFrame简单兼容hack
-
 ### download 
 #### &emsp;&emsp;[download][download]&emsp;&emsp;根据链接生成下载
 
@@ -113,7 +111,6 @@ const object = copyObj(obj1,obj2)
 [removeClass]:https://github.com/zhangkun-Jser/autils/blob/master/lib/removeClass.js
 [toggleClass]:https://github.com/zhangkun-Jser/autils/blob/master/lib/toggleClass.js
 [arrayEqual]:https://github.com/zhangkun-Jser/autils/blob/master/lib/arrayEqual.js
-[animationFrame]:https://github.com/zhangkun-Jser/autils/blob/master/src/animationFrame/animationFrame.js
 [getRandom]:https://github.com/zhangkun-Jser/autils/blob/master/src/random/getRandom.js
 [shuffle]:https://github.com/zhangkun-Jser/autils/blob/master/src/array/shuffle.js
 [throttle]:https://github.com/zhangkun-Jser/autils/blob/master/src/function/throttle.js
@@ -142,6 +139,7 @@ const object = copyObj(obj1,obj2)
 [cookieApi]:https://github.com/zhangkun-Jser/autils/blob/master/src/cookie/cookie.js
 [intersection]:https://github.com/zhangkun-Jser/autils/blob/master/src/array/intersection.js
 [download]:https://github.com/zhangkun-Jser/autils/blob/master/src/download/download.js
+[isEmptyObject]:https://github.com/zhangkun-Jser/autils/blob/master/src/object/isEmptyObject.js
 
 
 ## License
