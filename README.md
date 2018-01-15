@@ -14,7 +14,7 @@
 ``` html
   <script src="autils.min.js"></script>
   <script>
-      var copyObj = autils.copyObj(obj1,obj2)
+      var deepCopy = autils.deepCopy(obj1,obj2)
   </script>
 ```
 
@@ -28,8 +28,8 @@
 不需要完整引入所有函数，只引入需要使用的方法即可
 ``` javascript
   // 只引入部分方法('autils/lib/<方法名>')
-  const copyObj = require('autils/lib/copyObj')
-  const object = copyObj(obj1,obj2)
+  const deepCopy = require('autils/lib/deepCopy')
+  const object = deepCopy(obj1,obj2)
 ```
 
 ## API文档
