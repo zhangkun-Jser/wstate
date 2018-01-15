@@ -7,7 +7,7 @@ const hasClass = require('./class/hasClass')
 const removeClass = require('./class/removeClass')
 const toggleClass = require('./class/toggleClass')
 
-const copyObj = require('./object/copyObj')
+const deepCopy = require('./object/deepCopy')
 const isEmptyObject = require('./object/isEmptyObject')
 
 const isEmail = require('./regexp/isEmail')

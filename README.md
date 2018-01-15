@@ -61,7 +61,7 @@
 #### &emsp;&emsp;[formatTime][formatTime]&emsp;&emsp;格式化时间戳为年月日时分秒[y-m-d h:m:s]
 
 ### Object  
-#### &emsp;&emsp;[copyObj][copyObj]&emsp;&emsp;对象合并/深浅拷贝
+#### &emsp;&emsp;[deepCopy][deepCopy]&emsp;&emsp;对象合并/深拷贝
 #### &emsp;&emsp;[isEmptyObject][isEmptyObject]&emsp;&emsp;判断Object是否为空
 
 ### array 
@@ -125,7 +125,7 @@
 [getOs]:https://github.com/zhangkun-Jser/autils/blob/master/src/device/getOs.js
 [secretInfo]:https://github.com/zhangkun-Jser/autils/blob/master/src/secret/secretInfo.js
 [typeOf]:https://github.com/zhangkun-Jser/autils/blob/master/src/type/typeOf.js
-[copyObj]:https://github.com/zhangkun-Jser/autils/blob/master/src/object/copyObj.js
+[deepCopy]:https://github.com/zhangkun-Jser/autils/blob/master/src/object/deepCopy.js
 [isEmail]:https://github.com/zhangkun-Jser/autils/blob/master/src/regexp/isEmail.js
 [isIdCard]:https://github.com/zhangkun-Jser/autils/blob/master/src/regexp/isIdCard.js
 [isPhoneNum]:https://github.com/zhangkun-Jser/autils/blob/master/src/regexp/isPhoneNum.js
