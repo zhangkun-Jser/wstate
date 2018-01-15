@@ -49,6 +49,7 @@ const download = require('./download/download')
 
 
 module.exports = {
+  deepCopy,
   isEmptyObject,
   setScrollTop,
   scrollTo,
@@ -59,7 +60,6 @@ module.exports = {
   hasClass,
   removeClass,
   toggleClass,
-  copyObj,
   isEmail,
   isIdCard,
   isPhoneNum,
