@@ -1,43 +1,130 @@
 {
-  "name": "autils",
-  "version": "1.1.8",
-  "description": "前端常用函数库",
-  "main": "build/autils.min.js",
-  "scripts": {
-    "build": "node script/build.js",
-    "singleCopy": "node script/singleCopy.js",
-    "jsBabel": "babel src -d babelLib",
-    "test": "karma start script/karma.conf.js"
-  },
+  "name": "wstate",
+  "version": "1.1.0",
+  "description": "A state management library for react inspired by vue 3.0 reactivity api and immer",
+  "main": "dist/lib/index.js",
+  "typings": "dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "react.js",
+    "react.d.ts"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/zhangkun-Jser/autils"
+    "url": "git+https://github.com/zhangkun-Jser/wstate"
   },
   "keywords": [
-    "util",
-    "tool",
-    "common",
-    "前端",
-    "工具库"
+    "State Management"
   ],
-  "author": "zhangkun",
-  "license": "MIT",
+  "author": "keenzhang",
+  "engines": {
+    "node": ">=10.14.0"
+  },
+  "scripts": {
+    "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "prebuild": "rimraf dist",
+    "build": "tsc --module commonjs",
+    "start": "tsc -w --module commonjs",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --coverage --watch",
+    "test:prod": "npm run lint && npm run test -- --no-cache",
+    "report-coverage": "cat ./coverage/lcov.info | coveralls",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release",
+    "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
+    "precommit": "lint-staged",
+    "travis-deploy-once": "travis-deploy-once",
+    "prepare": "npm run test && npm run build"
+  },
+  "lint-staged": {
+    "{src,test}/**/*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx|js|jsx)": "ts-jest"
+    },
+    "testEnvironment": "jsdom",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 95,
+        "lines": 95,
+        "statements": 95
+      }
+    },
+    "collectCoverageFrom": [
+      "src/*.{js,ts}"
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1",
-    "chalk": "^2.3.0",
-    "copy": "^0.3.1",
-    "karma": "^1.7.1",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-coverage": "^1.1.1",
-    "karma-mocha": "^1.3.0",
-    "karma-mocha-reporter": "^2.2.5",
-    "karma-power-assert": "^1.0.0",
-    "mocha": "^4.0.1",
-    "ora": "^1.3.0",
-    "power-assert": "^1.4.4",
+    "@commitlint/cli": "^7.1.2",
+    "@commitlint/config-conventional": "^7.1.2",
+    "@types/jest": "^23.3.2",
+    "@types/node": "^10.11.0",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.5",
+    "colors": "^1.3.2",
+    "commitizen": "^3.0.0",
+    "coveralls": "^3.0.2",
+    "cross-env": "^5.2.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^1.0.1",
+    "jest": "^23.6.0",
+    "jest-config": "^23.6.0",
+    "lint-staged": "^8.0.0",
+    "lodash.camelcase": "^4.3.0",
+    "prettier": "^1.14.3",
+    "prompt": "^1.0.0",
+    "replace-in-file": "^3.4.2",
     "rimraf": "^2.6.2",
-    "webpack": "^3.8.1"
-  }
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "semantic-release": "^15.9.16",
+    "shelljs": "^0.8.3",
+    "travis-deploy-once": "^5.0.9",
+    "ts-jest": "^23.10.2",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.5.3"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhangkun-Jser/wstate/issues"
+  },
+  "homepage": "https://github.com/zhangkun-Jser/wstate#readme"
 }

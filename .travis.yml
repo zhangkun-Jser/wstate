@@ -1,14 +1,7 @@
-
 language: node_js
 node_js:
-  - "7"
-  - "8"
-before_install:
-- sudo apt-get install google-chrome-stable
+  - "10.14.0"
 install:
   - npm install
 script:
   - npm run test
-branches:
-  only:
-    - master

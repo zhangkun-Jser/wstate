@@ -1,146 +1,508 @@
-# autils &emsp;[![GitHub forks](https://img.shields.io/github/forks/zhangkun-Jser/autils.svg?style=social&label=Fork)](https://www.npmjs.com/package/autils)[![GitHub stars](https://img.shields.io/github/stars/zhangkun-Jser/autils.svg?style=social&label=Stars)](https://www.npmjs.com/package/autils)
-[![npm](https://img.shields.io/npm/dt/autils.svg)](https://www.npmjs.com/package/autils)
-[![Build Status](https://img.shields.io/appveyor/ci/gruntjs/grunt/master.svg) ![LICENSE MIT](https://img.shields.io/npm/l/express.svg)](https://www.npmjs.com/package/autils) ![](https://img.shields.io/npm/v/autils.svg)
+# Welcome to wstate 👋
 
- 
-前端常用函数库  
+[![npm version](https://img.shields.io/npm/v/wstate.svg?style=flat)](https://www.npmjs.com/package/wstate)
+[![Build Status](https://travis-ci.org/zhangkun-Jser/wstate.svg?branch=master)](https://travis-ci.org/zhangkun-Jser/wstate)
+[![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/zhangkun-Jser/wstate#readme)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/zhangkun-Jser/wstate/graphs/commit-activity)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/zhangkun-Jser/wstate/blob/master/LICENSE)
 
-> 目的：封装前端代码经常使用的函数，提高开发效率。如果你也有常用的代码，欢迎为本项目提交PR。
+> Create the next immutable state tree by simply modifying the current tree
 
-## 安装使用
+**wstate** is a tiny package that allows you to work with the immutable state in a more mutable and reactive way, inspired by vue 3.0 reactivity API and immer.
 
-1. 直接下载`bulid`目录下的[autils.min.js](https://github.com/zhangkun-Jser/autils/blob/master/build/autils.min.js)使用，支持UMD通用模块规范  
+### 🏠 [Homepage](https://github.com/zhangkun-Jser/wstate#readme)
 
-``` html
-  <script src="autils.min.js"></script>
-  <script>
-      var deepCopy = autils.deepCopy(obj1,obj2)
-  </script>
+## Benefits
+
+**wstate** is like immer but more reactive
+
+- Immutability with normal JavaScript objects and arrays. No new APIs to learn!
+- Strongly typed, no string based paths selectors etc.
+- Structural sharing out of the box
+- Deep updates are a breeze
+- Boilerplate reduction. Less noise, more concise code.
+- Provide react-hooks API
+- Small size
+- Reactive
+
+## Environment Requirement
+
+- ES2015 Proxy
+- ES2015 Symbol
+
+[Can I Use Proxy?](https://caniuse.com/#search=Proxy)
+
+## How it works
+
+Every immutable state is wrapped by a proxy, has a scapegoat state by the side.
+
+`immutable state` + `scapegoat state` = **wstate**
+
+- the immutable target is freezed by proxy
+- scapegoat has the same value as the immutable target
+- mutate(() => { **the_mutable_world** }), when calling `mutate(f)`, it will
+  - switch all operations to scapegoat instead of the immutable target when executing
+  - switch back to the immutable target after executed
+  - create the next wstate via `scapegoat` and `target`, sharing the unchanged parts
+  - we get two immutable states now
+
+## Install
+
+```sh
+npm install --save wstate
 ```
 
-2. 使用npm安装
-``` bash
-  $ npm install -D autils
+```sh
+yarn add wstate
 ```
 
-**推荐使用方法**  
+## Usage
 
-不需要完整引入所有函数，只引入需要使用的方法即可
-``` javascript
-  // 只引入部分方法('autils/lib/<方法名>')
-  const deepCopy = require('autils/lib/deepCopy')
-  const object = deepCopy(obj1,obj2)
+### Counter
+
+```javascript
+import React from 'react'
+// import react-hooks api from wstate/react
+import { useWstate, useMutate } from 'wstate/react'
+
+export default function Counter() {
+  // create state via useWstate
+  let state = useWstate({ count: 0 })
+
+  // safely mutate state via useMutate
+  let incre = useMutate(() => {
+    state.count += 1
+  })
+
+  let decre = useMutate(() => {
+    state.count -= 1
+  })
+
+  return (
+    <div>
+      <button onClick={incre}>+1</button>
+      {state.count}
+      <button onClick={decre}>-1</button>
+    </div>
+  )
+}
 ```
 
-## API文档
-### Class
-#### &emsp;&emsp;[hasClass][hasClass]&emsp;&emsp;检查元素是否有class
-#### &emsp;&emsp;[addClass][addClass]&emsp;&emsp;为元素添加class
-#### &emsp;&emsp;[removeClass][removeClass]&emsp;&emsp;为元素移除class
-#### &emsp;&emsp;[toggleClass][toggleClass]&emsp;&emsp;为元素切换class
+### TodoApp
 
-### dom
-#### &emsp;&emsp;[getScrollTop][getScrollTop]&emsp;&emsp;获取滚动条距顶部的距离
-#### &emsp;&emsp;[setScrollTop][setScrollTop]&emsp;&emsp;设置滚动条距顶部的距离
-#### &emsp;&emsp;[scrollTo][scrollTo]&emsp;&emsp;在${duration}时间内，滚动条平滑滚动到${to}指定位置
-#### &emsp;&emsp;[offset][offset]&emsp;&emsp;获取一个元素的距离文档(document)的位置，类似jQ中的offset()
-#### &emsp;&emsp;[softKeyCal][softKeyCal]&emsp;&emsp;移动端端软键盘呼出和消失的事件回调
+```javascript
+function Todo({ todo }) {
+  let edit = useWstate({ value: false })
+  /**
+   * wstate text is reactive
+   * we will pass the text down to TodoInput without the need of manually update it in Todo
+   * */
+  let text = useWstate({ value: '' })
 
-### Regexp  
-#### &emsp;&emsp;[isUrl][isUrl]&emsp;&emsp;判断是否为URL地址
-#### &emsp;&emsp;[isEmail][isEmail]&emsp;&emsp;判断是否为邮箱地址 
-#### &emsp;&emsp;[isIdCard][isIdCard]&emsp;&emsp;判断是否为身份证号
-#### &emsp;&emsp;[isPhoneNum][isPhoneNum]&emsp;&emsp;判断是否为手机号  
-#### &emsp;&emsp;[priceSubstr][priceSubstr]&emsp;&emsp;千位分割方法
+  // create a mutable function via useMutate
+  let handleEdit = useMutate(() => {
+    edit.value = !edit.value
+    text.value = todo.content
+  })
 
-### Secret
-#### &emsp;&emsp;[secretInfo][secretInfo]&emsp;&emsp;给隐私信息标记号加密
+  let handleEdited = useMutate(() => {
+    edit.value = false
+    if (text.value === '') {
+      // remove the todo from todos via remove function
+      remove(todo)
+    } else {
+      // mutate todo even it is not a local wstate
+      todo.content = text.value
+    }
+  })
 
-### Time  
-#### &emsp;&emsp;[formatPassTime][formatPassTime]&emsp;&emsp;格式化时间戳为天时分秒[d,h,m,s]
-#### &emsp;&emsp;[formatTime][formatTime]&emsp;&emsp;格式化时间戳为年月日时分秒[y-m-d h:m:s]
+  let handleKeyUp = useMutate((event) => {
+    if (event.key === 'Enter') {
+      handleEdited()
+    }
+  })
 
-### Object  
-#### &emsp;&emsp;[deepCopy][deepCopy]&emsp;&emsp;对象合并/深拷贝
-#### &emsp;&emsp;[isEmptyObject][isEmptyObject]&emsp;&emsp;判断Object是否为空
+  let handleRemove = useMutate(() => {
+    remove(todo)
+  })
 
-### array 
-#### &emsp;&emsp;[shuffle][shuffle]&emsp;&emsp;数组打乱随机乱序
-#### &emsp;&emsp;[arrayEqual][arrayEqual]&emsp;&emsp;判断数组是否相等
-#### &emsp;&emsp;[intersection][intersection]&emsp;&emsp;输出2数组的交叉项
+  let handleToggle = useMutate(() => {
+    todo.completed = !todo.completed
+  })
 
-### device  
-#### &emsp;&emsp;[isWeixin][isWeixin]&emsp;&emsp;是否是微信浏览器
-#### &emsp;&emsp;[mobileType][mobileType]&emsp;&emsp;设备类型iphone or android
-#### &emsp;&emsp;[getOs][getOs]&emsp;&emsp;是否是手机mobile or web
+  return (
+    <li>
+      <button onClick={handleRemove}>remove</button>
+      <button onClick={handleToggle}>{todo.completed ? 'completed' : 'active'}</button>
+      {edit.value && <TodoInput text={text} onBlur={handleEdited} onKeyUp={handleKeyUp} />}
+      {!edit.value && <span onClick={handleEdit}>{todo.content}</span>}
+    </li>
+  )
+}
 
-### function  
-#### &emsp;&emsp;[throttle][throttle]&emsp;&emsp;节流函数
-#### &emsp;&emsp;[debounce][debounce]&emsp;&emsp;防抖函数
+function TodoInput({ text, ...props }) {
+  let handleChange = useMutate((event) => {
+    /**
+     * we just simply and safely mutate text at one place
+     * instead of every parent components need to handle `onChange` event
+     */
+    text.value = event.target.value
+  })
+  return <input type="text" {...props} onChange={handleChange} value={text.value} />
+}
+```
 
-### localStorage
-#### &emsp;&emsp;[localStorageApi][localStorageApi]&emsp;&emsp;本地持久化存储
-##### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;localStorageApi.set
-##### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;localStorageApi.get
-##### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;localStorageApi.remove
-##### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;localStorageApi.clear
+## API
 
-### cookie
-#### &emsp;&emsp;[cookieApi][cookieApi]&emsp;&emsp;cookie存储(适用和服务端交互)
-##### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cookieApi.set
-##### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cookieApi.get
-##### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cookieApi.remove
-##### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cookieApi.has
-##### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;cookieApi.keys
+```javascript
+import { createStore, mutate, remove, isWstate, debug, undebug } from 'wstate'
+import {
+  useWstate,
+  useMutate,
+  useBireducer,
+  useComputed,
+  useBinding,
+  view,
+  useAttr,
+  useAttrs,
+} from 'wstate/react'
+```
 
-### Type
-#### &emsp;&emsp;[typeOf][typeOf]&emsp;&emsp;判断类型
+### useWstate(array | object, wstate?) -> wstate
 
-### Url
-#### &emsp;&emsp;[getUrlParams][getUrlParams]&emsp;&emsp;url参数转对象
-#### &emsp;&emsp;[stringfyQs][stringfyQs]&emsp;&emsp;对象序列化
+receive an array or an object, return wstate.
 
-### random 
-#### &emsp;&emsp;[getRandom][getRandom]&emsp;&emsp;返回选定返回的随机整数
+if the second argument is another wstate which has the same shape with the first argument, return the second argument instead.
 
-### download 
-#### &emsp;&emsp;[download][download]&emsp;&emsp;根据链接生成下载
+```javascript
+let Child = (props: { counter?: { count: number } }) => {
+  // if props.counter is existed, use props.counter, otherwise use local wstate.
+  let state = useWstate({ count: 0 }, props.counter)
 
-[hasClass]:https://github.com/zhangkun-Jser/autils/blob/master/lib/hasClass.js
-[addClass]:https://github.com/zhangkun-Jser/autils/blob/master/lib/addClass.js
-[removeClass]:https://github.com/zhangkun-Jser/autils/blob/master/lib/removeClass.js
-[toggleClass]:https://github.com/zhangkun-Jser/autils/blob/master/lib/toggleClass.js
-[arrayEqual]:https://github.com/zhangkun-Jser/autils/blob/master/lib/arrayEqual.js
-[getRandom]:https://github.com/zhangkun-Jser/autils/blob/master/src/random/getRandom.js
-[shuffle]:https://github.com/zhangkun-Jser/autils/blob/master/src/array/shuffle.js
-[throttle]:https://github.com/zhangkun-Jser/autils/blob/master/src/function/throttle.js
-[debounce]:https://github.com/zhangkun-Jser/autils/blob/master/src/function/debounce.js
-[getScrollTop]:https://github.com/zhangkun-Jser/autils/blob/master/src/dom/getScrollTop.js
-[offset]:https://github.com/zhangkun-Jser/autils/blob/master/src/dom/offset.js
-[scrollTo]:https://github.com/zhangkun-Jser/autils/blob/master/src/dom/scrollTo.js
-[setScrollTop]:https://github.com/zhangkun-Jser/autils/blob/master/src/dom/setScrollTop.js
-[softKeyCal]:https://github.com/zhangkun-Jser/autils/blob/master/src/dom/softKeyCal.js
-[isWeixin]:https://github.com/zhangkun-Jser/autils/blob/master/src/device/isWeixin.js
-[mobileType]:https://github.com/zhangkun-Jser/autils/blob/master/src/device/mobileType.js
-[getOs]:https://github.com/zhangkun-Jser/autils/blob/master/src/device/getOs.js
-[secretInfo]:https://github.com/zhangkun-Jser/autils/blob/master/src/secret/secretInfo.js
-[typeOf]:https://github.com/zhangkun-Jser/autils/blob/master/src/type/typeOf.js
-[deepCopy]:https://github.com/zhangkun-Jser/autils/blob/master/src/object/deepCopy.js
-[isEmail]:https://github.com/zhangkun-Jser/autils/blob/master/src/regexp/isEmail.js
-[isIdCard]:https://github.com/zhangkun-Jser/autils/blob/master/src/regexp/isIdCard.js
-[isPhoneNum]:https://github.com/zhangkun-Jser/autils/blob/master/src/regexp/isPhoneNum.js
-[isUrl]:https://github.com/zhangkun-Jser/autils/blob/master/src/regexp/isUrl.js
-[priceSubstr]:https://github.com/zhangkun-Jser/autils/blob/master/src/regexp/priceSubstr.js
-[formatPassTime]:https://github.com/zhangkun-Jser/autils/blob/master/src/time/formatPassTime.js
-[formatTime]:https://github.com/zhangkun-Jser/autils/blob/master/src/time/formatTime.js
-[getUrlParams]:https://github.com/zhangkun-Jser/autils/blob/master/src/url/getUrlParams.js
-[stringfyQs]:https://github.com/zhangkun-Jser/autils/blob/master/src/url/stringfyQs.js
-[localStorageApi]:https://github.com/zhangkun-Jser/autils/blob/master/src/stroge/localStorage.js
-[cookieApi]:https://github.com/zhangkun-Jser/autils/blob/master/src/cookie/cookie.js
-[intersection]:https://github.com/zhangkun-Jser/autils/blob/master/src/array/intersection.js
-[download]:https://github.com/zhangkun-Jser/autils/blob/master/src/download/download.js
-[isEmptyObject]:https://github.com/zhangkun-Jser/autils/blob/master/src/object/isEmptyObject.js
+  let handleClick = useMutate(() => {
+    state.count += 1
+  })
 
+  return <div onClick={handleClick}>{state.count}</div>
+}
 
-## License
-autils is open source and released under the [MIT License](LICENSE).
+// use local wstate
+<Child />
+// use parent wstate
+<Child counter={state} />
+```
+
+### useMutate((...args) => any_value) -> ((...args) => any_value)
+
+receive a function as argument, return the mutable_function
+
+it's free to mutate any wstates in mutable_function, not matter where they came from(they can belong to the parent component)
+
+### useBireducer(reducer, initialState) -> [state, dispatch]
+
+receive a reducer and an initial state, return a pair [state, dispatch]
+
+its' free to mutate any wstates in the reducer funciton
+
+```javascript
+import { useBireducer } from 'wstate/react'
+
+const Test = () => {
+  let [state, dispatch] = useBireducer(
+    (state, action) => {
+      if (action.type === 'incre') {
+        state.count += 1
+      }
+
+      if (action.type === 'decre') {
+        state.count -= 1
+      }
+    },
+    { count: 0 }
+  )
+
+  let handleIncre = () => {
+    dispatch({ type: 'incre' })
+  }
+
+  let handleIncre = () => {
+    dispatch({ type: 'decre' })
+  }
+
+  // render view
+}
+```
+
+### useComputed(obj, deps) -> obj
+
+Create computed state
+
+```javascript
+let state = useWstate({ first: 'a', last: 'b' })
+
+// use getter/setter
+let computed = useComputed(
+  {
+    get value() {
+      return state.first + ' ' + state.last
+    },
+    set value(name) {
+      let [first, last] = name.split(' ')
+      state.first = first
+      state.last = last
+    },
+  },
+  [state.first, state.last]
+)
+
+let handleEvent = useMutate(() => {
+  console.log(computed.value) // 'a b'
+  // update
+  computed.value = 'Bill Gates'
+
+  console.log(state.first) // Bill
+  console.log(state.last) // Gates
+})
+```
+
+### useBinding(wstate) -> obj
+
+Create binding state
+
+A binding state is an object has only one filed `{ value }`
+
+```javascript
+let state = useWstate({ text: 'some text' })
+
+let { text } = useBinding(state)
+
+// don't do this
+// access field will trigger a react-hooks
+// you should always use ECMAScript 6 (ES2015) destructuring to get binding state
+let bindingState = useBinding(state)
+if (xxx) xxx = bindingState.xxx
+
+let handleChange = () => {
+  console.log(text.value) // some text
+  console.log(state.text) // some text
+  text.value = 'some new text'
+  console.log(text.value) // some new text
+  console.log(state.text) // some new text
+}
+```
+
+It's useful when child component needs binding state, but parent component state is not.
+
+```javascript
+function Input({ text, ...props }) {
+  let handleChange = useMutate((event) => {
+    /**
+     * we just simply and safely mutate text at one place
+     * instead of every parent components need to handle `onChange` event
+     */
+    text.value = event.target.value
+  })
+  return <input type="text" {...props} onChange={handleChange} value={text.value} />
+}
+
+function App() {
+  let state = useWstate({
+    fieldA: 'A',
+    fieldB: 'B',
+    fieldC: 'C',
+  })
+  let { fieldA, fieldB, fieldC } = useBinding(state)
+
+  return (
+    <>
+      <Input text={fieldA} />
+      <Input text={fieldB} />
+      <Input text={fieldC} />
+    </>
+  )
+}
+```
+
+### view(FC) -> FC
+
+create a two-way data binding function-component
+
+```javascript
+
+const Counter = view(props => {
+  // Counter will not know the count is local or came from the parent
+  let count = useAttr('count', { value: 0 })
+
+  let handleClick = useMutate(() => {
+    count.value += 1
+  })
+
+  return <button onClick={handleClick}>{count.value}</button>
+})
+
+// use local wstate
+<Counter />
+
+// create a two-way data binding connection with parent wstate
+<Count count={parentWstate.count} />
+```
+
+### useAttrs(initValue) -> Record<string, wstate>
+
+create a record of wstate, when the value in props[key] is wstate, connect it.
+
+useAttrs must use in view(fc)
+
+```javascript
+
+const Test = view(() => {
+  // Counter will not know the count is local or came from the parent
+  let attrs = useAttrs({ count: { value: 0 } })
+
+  let handleClick = useMutate(() => {
+    attrs.count.value += 1
+  })
+
+  return <button onClick={handleClick}>{attrs.count.value}</button>
+})
+
+// use local wstate
+<Counter />
+
+// create a two-way data binding connection with parent wstate
+<Count count={parentWstate.count} />
+```
+
+### useAttr(key, initValue) -> wstate
+
+a shortcut of `useAttrs({ [key]: initValue })[key]`, it's useful when we want to separate attrs
+
+### createStore(initialState) -> { subscribe, getState }
+
+create a store with an initial state
+
+#### store.subscribe(listener) -> unlisten
+
+subscribe to the store, and return an unlisten function
+
+Every time the state has been mutated, a new state will publish to every listener.
+
+#### store.getState() -> state
+
+get the current state in the store
+
+```javascript
+let store = createStore({ count: 1 })
+let state = store.getState()
+
+let unlisten = store.subscribe((nextState) => {
+  expect(state).toEqual({ count: 1 })
+  expect(nextState).toEqual({ count: 2 })
+  unlisten()
+})
+
+mutate(() => {
+  state.count += 1
+})
+```
+
+### mutate(f) -> value_returned_by_f
+
+immediately execute the function and return the value
+
+it's free to mutate the wstate in mutate function
+
+### remove(wstate) -> void
+
+remove the wstate from its parent
+
+### isWstate(input) -> boolean
+
+check if input is a wstate or not
+
+### debug(wstate) -> void
+
+enable debug mode, break point when wstate is mutating
+
+### undebug(wstate) -> void
+
+disable debug mode
+
+## Caveats
+
+- only supports array and object, other data types are not allowed
+
+- wstate is unidirectional, any object or array appear only once, no circular references existed
+
+```javascript
+let state = useWstate([{ value: 1 }])
+
+mutate(() => {
+  state.push(state[0])
+  // nextState[0] is equal to state[0]
+  // nextState[1] is not equal to state[0], it's a new one
+})
+```
+
+- can not spread object or array as props, it will lose the reactivity connection in it, should pass the reference
+
+```javascript
+
+// don't do this
+<Todo {...todo} />
+
+// do this instead
+<Todo todo={todo} />
+```
+
+- can not edit state or props via react-devtools, the same problem as above
+
+- useMutate or mutate do not support async function
+
+```javascript
+const Test = () => {
+  let state = useWstate({ count: 0 })
+
+  // don't do this
+  let handleIncre = useMutate(async () => {
+    let n = await fetchData()
+    state.count += n
+  })
+
+  // do this instead
+  let incre = useMutate((n) => {
+    state.count += n
+  })
+
+  let handleIncre = async () => {
+    let n = await fetchData()
+    incre(n)
+  }
+
+  return <div onClick={handleIncre}>test</div>
+}
+```
+
+## Author
+
+👤 **keenzhang**
+
+- Github: [@keenzhang](https://github.com/zhangkun-Jser)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check [issues page](https://github.com/zhangkun-Jser/wstate/issues).
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+## 📝 License
+
+Copyright © 2021 [keenzhang](https://github.com/zhangkun-Jser).
+
+This project is [MIT](https://github.com/zhangkun-Jser/wstate/blob/master/LICENSE) licensed.
+
+---

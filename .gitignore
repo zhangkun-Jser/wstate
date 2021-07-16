@@ -1,14 +1,11 @@
-
-# files
-*.log
-*.zip
+node_modules
+coverage
+.nyc_output
 .DS_Store
-test.html
-
-# folders
-node_modules/*
-coverage/*
-babelLib/*
-
-# Editor directories and files
+*.log
+.vscode
 .idea
+dist
+compiled
+.awcache
+.rpt2_cache
