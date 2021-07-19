@@ -1,6 +1,6 @@
 {
   "name": "wstate",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A state management library for react inspired by vue 3.0 reactivity api and immer",
   "main": "dist/lib/index.js",
   "typings": "dist/types/index.d.ts",

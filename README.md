@@ -1,7 +1,6 @@
 # Welcome to wstate 👋
 
 [![npm version](https://img.shields.io/npm/v/wstate.svg?style=flat)](https://www.npmjs.com/package/wstate)
-[![Build Status](https://travis-ci.org/zhangkun-Jser/wstate.svg?branch=master)](https://travis-ci.org/zhangkun-Jser/wstate)
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](https://github.com/zhangkun-Jser/wstate#readme)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/zhangkun-Jser/wstate/graphs/commit-activity)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/zhangkun-Jser/wstate/blob/master/LICENSE)
@@ -159,7 +158,7 @@ import { createStore, mutate, remove, isWstate, debug, undebug } from 'wstate'
 import {
   useWstate,
   useMutate,
-  useBireducer,
+  useWreducer,
   useComputed,
   useBinding,
   view,
@@ -198,17 +197,17 @@ receive a function as argument, return the mutable_function
 
 it's free to mutate any wstates in mutable_function, not matter where they came from(they can belong to the parent component)
 
-### useBireducer(reducer, initialState) -> [state, dispatch]
+### useWreducer(reducer, initialState) -> [state, dispatch]
 
 receive a reducer and an initial state, return a pair [state, dispatch]
 
 its' free to mutate any wstates in the reducer funciton
 
 ```javascript
-import { useBireducer } from 'wstate/react'
+import { useWreducer } from 'wstate/react'
 
 const Test = () => {
-  let [state, dispatch] = useBireducer(
+  let [state, dispatch] = useWreducer(
     (state, action) => {
       if (action.type === 'incre') {
         state.count += 1
