@@ -1,26 +1,36 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
-    "target": "es5",
-    "module":"es2015",
-    "lib": ["es2015", "es2016", "es2017", "dom", "esnext"],
-    "jsx": "react",
-    "strict": false,
-    "sourceMap": true,
     "declaration": true,
-    "esModuleInterop": true,
-    "downlevelIteration": true,
+    "declarationDir": "./dist",
+    "module": "ESNext",
+//    "module": "es2015",
+//    "module": "commonjs",
+//    "noImplicitAny": true,
+    "outDir": "./dist",
+    "target": "es5",
+    "lib": ["es6", "es2017", "dom"],
+    // https://github.com/axios/axios/issues/1221
+    "moduleResolution": "node",
+//    "types": ["javascript-state-machine"],
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "typeRoots": [ "./types", "./node_modules/@types"],
+
+    // epos config
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+//    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+//    "module": "esnext",
+//    "moduleResolution": "node",
     "resolveJsonModule": true,
-    "declarationDir": "dist/types",
-    "outDir": "dist/lib",
-    "typeRoots": [
-      "node_modules/@types"
-    ]
+    "isolatedModules": true,
+    "noImplicitAny": false,
+    "noEmit": true
   },
   "include": [
-    "src"
-  ]
+    "src/**/*"
+  ],
+  "exclude": ["node_modules", "typings", "test"]
 }

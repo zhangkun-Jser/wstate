@@ -1,7 +1,5 @@
 language: node_js
 node_js:
-  - "10.14.0"
-install:
-  - npm install
-script:
-  - npm run test
+ - '4'
+ - '6'
+sudo: false
