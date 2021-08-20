@@ -94,20 +94,18 @@ var fsm = new StateMachine({
 
 # Terminology
 
-A state machine consists of a set of [**States**](docs/states-and-transitions.md)
-
+A state machine consists of a set of States 
 - solid
 - liquid
 - gas
 
-A state machine changes state by using [**Transitions**](docs/states-and-transitions.md)
-
+A state machine changes state by using Transitions 
 - melt
 - freeze
 - vaporize
 - condense
 
-A state machine can perform actions during a transition by observing [**Lifecycle Events**](docs/lifecycle-events.md)
+A state machine can perform actions during a transition by observing Lifecycle Events 
 
 - onBeforeMelt
 - onAfterMelt
@@ -115,24 +113,11 @@ A state machine can perform actions during a transition by observing [**Lifecycl
 - onEnterLiquid
 - ...
 
-A state machine can also have arbitrary [**Data and Methods**](docs/data-and-methods.md).
+A state machine can also have arbitrary Data and Methods 
 
-Multiple instances of a state machine can be created using a [**State Machine Factory**](docs/state-machine-factory.md).
+Multiple instances of a state machine can be created using a State Machine Factory 
 
-# Documentation
 
-Read more about
-
-- [States and Transitions](docs/states-and-transitions.md)
-- [Data and Methods](docs/data-and-methods.md)
-- [Lifecycle Events](docs/lifecycle-events.md)
-- [Asynchronous Transitions](docs/async-transitions.md)
-- [Initialization](docs/initialization.md)
-- [Error Handling](docs/error-handling.md)
-- [State History](docs/state-history.md)
-- [Visualization](docs/visualization.md)
-- [State Machine Factory](docs/state-machine-factory.md)
-- [Upgrading from 2.x](docs/upgrading-from-v2.md)
 
 # Author
 

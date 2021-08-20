@@ -28,7 +28,6 @@ yarn.lock
 *.iml
 
 node_modules
-dist
 original
 coverage
 .nyc_output
